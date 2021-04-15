@@ -92,6 +92,9 @@ class SV_EXPORT_UTILS cvMath {
     int GetInsertintIndexByProjectedDistance( std::vector<std::array<double,3> > points, std::array<double,3> point, 
         bool insertOnlyIfDifferent = true);
 
+    // \para vec : a vector in three dimensional space
+    // \return : a vector in three dimensional space that is perpendicular to
+    //           the input vector
     std::array<double,3> GetPerpendicularNormalVector(std::array<double,3> vec);
 
     std::vector<std::array<double, 3> > CreateSmoothedCurve(std::vector<std::array<double, 3> > points, bool closed, int numModes, int sampleRate, int outputNumPts);
