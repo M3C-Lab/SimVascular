@@ -59,9 +59,26 @@ class SV_EXPORT_UTILS cvMath {
     // \para b   : the column size minus 1 of the two-dimensional array
     void deleteArray(double **ptr, int a, int b);
 
+    // \para orgPts    : a pointer to a two-dimensional array standing for
+    // 		         origin points which is manually selected
+    // \para numOrgPts : the number of origin points
+    // \para t0        : initial parametric position in one dimention
+    // \para dt        : step size of parameter t
+    // \para numOutPts : the required number of output points
+    // \para outPts    : a pointer to a three-dimensional array include the
+    //                   two-dimensional position
+    // \return SV_OK/SV_ERROR : if error exists 
     int linearInterpolate(double **orgPts, int numOrgPts, double t0,
         double dt, int numOutPts, double ***outPts);
     
+    // \para orgPts    : a pointer to a two-dimensional array standing for
+    //                   origin points which is manually selected
+    // \para numOrgPts : the number of origin points
+    // \para closed    : whether the curve is closed or not
+    // \para numOutPts : the required number of output points
+    // \para rtnOutPts : a pointer to a three-dimensional array include the
+    //                   three-dimensional position
+    // \return SV_OK/SV_ERROR : if error exists
     int linearInterpolateCurve(double **orgPts, int numOrgPts, int closed,
         int numOutPts, double ***rtnOutPts);
 
@@ -74,7 +91,13 @@ class SV_EXPORT_UTILS cvMath {
 
     int compute_v_womersley(double **terms, int numTerms, double viscosity, double density,
         double omega, double radmax, double rad, double time, double *v);
-
+    
+    // \para pts    : a pointer to a two-dimensional array standing for
+    //                three-dimentianal positions of the points on the curve
+    // \para numPts : the number of the points
+    // \para closed : whether the curve is closed or not
+    // \para length : length of the curve
+    // \return SV_OK/SV_ERROR : if error exists
     int curveLength(double **pts, int numPts, int closed, double *length);
 
     int smoothCurve(double **orgPts, int numOrgPts, int closed, int keepNumModes,
